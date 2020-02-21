@@ -68,7 +68,8 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-office-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config  
 ```
-    and copy the logback.xml files from respective modules.  
+    
+	and copy the logback.xml files from respective modules.  
     Then modify the logback.xml files for each one of the modules so that they point to the right directory in Tomcat where the respective log file will be stored.
 
 4. Adjust properties files to use the correct configurations.
@@ -80,19 +81,19 @@ Create a new database called `ewa_prod` and a database user and then run the scr
      google-service-account-key-development-production.json
    - In the Internationalisation module under the extraction resources folder (internationalisation/extraction/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the Internationalisation module under the templates resources folder (internationalisation/templates/src/main/resources) rename the config-default.properties file to config.properties
+   - In the Internationalisation module under the templates resources folder (internationalisation/templates/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the office module under the server resources folder (office/server/src/main/resources) rename the config-default.properties file to config.properties
+   - In the office module under the server resources folder (office/server/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the API module under the editors resources folder (services/editors/src/main/resources) rename the config-default.properties file to config.properties
+   - In the API module under the editors resources folder (services/editors/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the REST API module under the rest resources folder (services/rest/src/main/resources) rename the config-default.properties file to config.properties
+   - In the REST API module under the rest resources folder (services/rest/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the API module under the statistics resources folder (services/statistics/src/main/resources) rename the config-default.properties file to config.properties
+   - In the API module under the statistics resources folder (services/statistics/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
-   - In the tools module under the ganalytics test resources folder (tools/ganalytics/src/test/resources) rename the analytics-default.properties file to analytics.properties
+   - In the tools module under the ganalytics test resources folder (tools/ganalytics/src/test/resources) rename the `analytics-default.properties` file to `analytics.properties`
      and fill/edit the respective property values according to the comments in the file. 
-   - In the tools module under the zanataLiteralsUpdate resources folder (tools/zanataLiteralsUpdate/src/main/resources) rename the config-default.properties file to config.properties
+   - In the tools module under the zanataLiteralsUpdate resources folder (tools/zanataLiteralsUpdate/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
 
 5. Create tmp-office-files directory under Tomcat directory.
@@ -105,10 +106,10 @@ To build the project from command line run `mvn clean compile` from the project'
 The four applications that need to be deployed under Tomcat are: editors, api, rest, office.
 Run `mvn package` from the project's root folder to produce the war files.
 
-Rename the war produced under editors/target to editors.war  
-Rename the war produced under services/editors/target to api.war  
-Rename the war produced under services/rest/target to rest#v1.war  
-Rename the war produced under office/server/target to office.war  
+Rename the war produced under editors/target to `editors.war`  
+Rename the war produced under services/editors/target to `api.war`  
+Rename the war produced under services/rest/target to `rest#v1.war`  
+Rename the war produced under office/server/target to `office.war`    
 
 and copy all four to Tomcat webapps folder.
 
