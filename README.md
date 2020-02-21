@@ -99,7 +99,7 @@ Then modify the logback.xml files for each one of the modules so that they point
 
 ## Build
 
-To build the project from command line run {{mvn clean compile}} from the project's root folder.
+To build the project from command line run <pre>mvn clean compile</pre> from the project's root folder.
 
 ## Deploy
 The four applications that need to be deployed under Tomcat are: editors, api, rest, office.
