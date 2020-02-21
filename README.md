@@ -97,7 +97,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
    - In the tools module under the zanataLiteralsUpdate resources folder (tools/zanataLiteralsUpdate/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
 
-5. Create `tmp-office-files directory` under Tomcat directory.
+5. Create `tmp-office-files` directory under Tomcat directory.
 
 ## Build
 
