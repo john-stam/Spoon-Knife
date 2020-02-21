@@ -110,7 +110,7 @@ Run `mvn package` from the project's root folder to produce the war files.
 Rename the war produced under editors/target to `editors.war`  
 Rename the war produced under services/editors/target to `api.war`  
 Rename the war produced under services/rest/target to `rest#v1.war`  
-Rename the war produced under office/server/target to `office.war`    
+Rename the war produced under office/server/target to `office.war`  
 
 and copy all four to Tomcat webapps folder.
 
