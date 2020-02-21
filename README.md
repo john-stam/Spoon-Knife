@@ -40,7 +40,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
 ## Configuration
 
 1. Add the following application data source in Tomcat's server.xml under the GlobalNamingResources element (jtds library should be added to Tomcat's lib folder).
-
+```
 <Resource name="jdbc/EWA_STATISTICS"  
         type="javax.sql.DataSource"  
         auth="Container"  
@@ -50,9 +50,9 @@ Create a new database called `ewa_prod` and a database user and then run the scr
         password="<PASSWORD>"  
         maxActive="300" maxIdle="2" maxWait="5000"  
         removeAbandoned="true" removeAbandonedTimeout="60" />  
-
+```
 2. Add the following context initialization parameters to Tomcat's context.xml to set the properties paths for all modules and make them visible to the web application:
-
+```
     <Parameter name="europass-ewa-editors.external.config.properties"                         override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-editors-config.properties" />  
     <Parameter name="europass-ewa-services-remote-upload-postback.external.config.properties" override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-remote-upload-partners.properties" />  
     <Parameter name="europass-ewa-services-editors.external.config.properties"                override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/config.properties" />  
@@ -60,7 +60,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <Parameter name="europass-ewa-services-rest.external.config.properties"                   override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/config.properties" />  
     <Parameter name="database-rest.external.config.properties"                                override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/database.properties" />     
     <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/>  
-
+```
 3. Create the following directories under Tomcat:
 
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config  
