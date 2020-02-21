@@ -1,6 +1,6 @@
 # EWA (Europass Web Apps - Cedefop)
 
-**EWA (Europass Web Apps - Cedefop)** is a distributed Java-based web system to help individuals communicate their skills, 
+**EWA (Europass Web Apps - Cedefop)** is a distributed Java-based web system to help individuals communicate their skills,  
 qualifications and experience through the use of standardised documents templates. 
 
 It consists of the following main modules:
@@ -24,13 +24,13 @@ libraries (JARs) with the API module. The Europass REST API mostly provides a se
 to send a Europass XML or JSON document and get back a Europass document of a different file format such as PDF+XML.
 
 ## Prerequisites
-
+```
     JDK 1.7
     Maven 3
     Tomcat 7
     SQL Server
     LibreOffice 4.0
-
+```
 ## Database
 
 Europass editor is currently using an SQL Server database.
@@ -62,23 +62,23 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/>  
 ```
 3. Create the following directories under Tomcat:
-
+```
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-api-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-office-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config  
-
-    and copy the logback.xml files from respective modules.
+```
+    and copy the logback.xml files from respective modules.  
     Then modify the logback.xml files for each one of the modules so that they point to the right directory in Tomcat where the respective log file will be stored.
 
 4. Adjust properties files to use the correct configurations.
-   - In the Editors module resources folder (editors/src/main/resources) rename the ewa-editors-config-default.properties file to ewa-editors-config.properties 
-     and the ewa-remote-upload-partners-default.properties file to ewa-remote-upload-partners.properties and fill/edit the respective property values according 
+   - In the Editors module resources folder (editors/src/main/resources) rename the `ewa-editors-config-default.properties` file to `ewa-editors-config.properties`
+     and the `ewa-remote-upload-partners-default.properties` file to `ewa-remote-upload-partners.properties` and fill/edit the respective property values according 
      to the comments in the file.
-   - In the cloud-share-config folder under the editors module resources folder fill the google service authentication properties. Rename the google-service-account-key-development-${ENVIRONMENT}.json file according to the 
-     value of the context.project.current.environment in wa-editors-config.properties e.g if context.project.current.environment=production then the json file name should be
+   - In the cloud-share-config folder under the editors module resources folder fill the google service authentication properties. Rename the 1google-service-account-key-development-${ENVIRONMENT}.json1 file according to the 
+     value of the `context.project.current.environment` in `ewa-editors-config.properties` e.g if context.project.current.environment=production then the json file name should be
      google-service-account-key-development-production.json
-   - In the Internationalisation module under the extraction resources folder (internationalisation/extraction/src/main/resources) rename the config-default.properties file to config.properties
+   - In the Internationalisation module under the extraction resources folder (internationalisation/extraction/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
    - In the Internationalisation module under the templates resources folder (internationalisation/templates/src/main/resources) rename the config-default.properties file to config.properties
      and fill/edit the respective property values according to the comments in the file.
@@ -90,7 +90,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
      and fill/edit the respective property values according to the comments in the file.
    - In the API module under the statistics resources folder (services/statistics/src/main/resources) rename the config-default.properties file to config.properties
      and fill/edit the respective property values according to the comments in the file.
-   - In the tools module under the ganalytics test resources folder(tools/ganalytics/src/test/resources) rename the analytics-default.properties file to analytics.properties
+   - In the tools module under the ganalytics test resources folder (tools/ganalytics/src/test/resources) rename the analytics-default.properties file to analytics.properties
      and fill/edit the respective property values according to the comments in the file. 
    - In the tools module under the zanataLiteralsUpdate resources folder (tools/zanataLiteralsUpdate/src/main/resources) rename the config-default.properties file to config.properties
      and fill/edit the respective property values according to the comments in the file.
@@ -105,10 +105,10 @@ To build the project from command line run `mvn clean compile` from the project'
 The four applications that need to be deployed under Tomcat are: editors, api, rest, office.
 Run `mvn package` from the project's root folder to produce the war files.
 
-Rename the war produced under editors/target to editors.war
-Rename the war produced under services/editors/target to api.war
-Rename the war produced under services/rest/target to rest#v1.war
-Rename the war produced under office/server/target to office.war
+Rename the war produced under editors/target to editors.war  
+Rename the war produced under services/editors/target to api.war  
+Rename the war produced under services/rest/target to rest#v1.war  
+Rename the war produced under office/server/target to office.war  
 
 and copy all four to Tomcat webapps folder.
 
