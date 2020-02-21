@@ -99,7 +99,7 @@ Create a new database called ewa_prod and a database user and then run the scrip
 
 ## Build
 
-To build the project from command line run mvn clean compile from the project's root folder.
+To build the project from command line run `mvn clean compile` from the project's root folder.
 
 ## Deploy
 The four applications that need to be deployed under Tomcat are: editors, api, rest, office.
