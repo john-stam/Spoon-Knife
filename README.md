@@ -34,8 +34,8 @@ to send a Europass XML or JSON document and get back a Europass document of a di
 ## Database
 
 Europass editor is currently using an SQL Server database.
-Create a new database called `ewa_prod` and a database user and then run the script that can be found in the statistics module 
-(path to script: europass-editors\statistics\src\main\resources\sql\ewa_prod_creation.sql) to create the database structure.
+Create a new database called `ewa_prod` and a database user and then run the script that can be found in the statistics module to create the database structure  
+(path to script: europass-editors\statistics\src\main\resources\sql\ewa_prod_creation.sql).
 
 ## Configuration
 
@@ -62,14 +62,14 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/>  
 ```
 3. Create the following directories under Tomcat:
-```
+    ```
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-api-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-office-logback-config  
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config  
-```
-    
-	and copy the logback.xml files from respective modules.  
+    ```
+
+    and copy the logback.xml files from respective modules.  
     Then modify the logback.xml files for each one of the modules so that they point to the right directory in Tomcat where the respective log file will be stored.
 
 4. Adjust properties files to use the correct configurations.
