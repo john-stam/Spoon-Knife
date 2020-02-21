@@ -25,23 +25,23 @@ to send a Europass XML or JSON document and get back a Europass document of a di
 
 ## Prerequisites
 ```
-    JDK 1.7
-    Maven 3
-    Tomcat 7
-    SQL Server
-    LibreOffice 4.0
+JDK 1.7
+Maven 3
+Tomcat 7
+SQL Server
+LibreOffice 4.0
 ```
 ## Database
 
 Europass editor is currently using an SQL Server database.
 Create a new database called `ewa_prod` and a database user and then run the script that can be found in the statistics module to create the database structure  
-(path to script: europass-editors\statistics\src\main\resources\sql\ewa_prod_creation.sql).
+(path to script: europass-editors/statistics/src/main/resources/sql/ewa_prod_creation.sql).
 
 ## Configuration
 
 1. Add the following application data source in Tomcat's server.xml under the GlobalNamingResources element (jtds library should be added to Tomcat's lib folder).
-```
-<Resource name="jdbc/EWA_STATISTICS"  
+    ```
+    <Resource name="jdbc/EWA_STATISTICS"  
         type="javax.sql.DataSource"  
         auth="Container"  
         driverClassName="net.sourceforge.jtds.jdbc.Driver"  
@@ -50,9 +50,9 @@ Create a new database called `ewa_prod` and a database user and then run the scr
         password="<PASSWORD>"  
         maxActive="300" maxIdle="2" maxWait="5000"  
         removeAbandoned="true" removeAbandonedTimeout="60" />  
-```
+    ```
 2. Add the following context initialization parameters to Tomcat's context.xml to set the properties paths for all modules and make them visible to the web application:
-```
+    ```
     <Parameter name="europass-ewa-editors.external.config.properties"                         override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-editors-config.properties" />  
     <Parameter name="europass-ewa-services-remote-upload-postback.external.config.properties" override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-remote-upload-partners.properties" />  
     <Parameter name="europass-ewa-services-editors.external.config.properties"                override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/config.properties" />  
@@ -60,7 +60,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <Parameter name="europass-ewa-services-rest.external.config.properties"                   override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/config.properties" />  
     <Parameter name="database-rest.external.config.properties"                                override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/database.properties" />     
     <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/>  
-```
+    ```
 3. Create the following directories under Tomcat:
     ```
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config  
@@ -69,7 +69,8 @@ Create a new database called `ewa_prod` and a database user and then run the scr
     <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config  
     ```
 
-    and copy the logback.xml files from respective modules.  
+    and copy the logback.xml files from respective modules.
+	
     Then modify the logback.xml files for each one of the modules so that they point to the right directory in Tomcat where the respective log file will be stored.
 
 4. Adjust properties files to use the correct configurations.
@@ -96,7 +97,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
    - In the tools module under the zanataLiteralsUpdate resources folder (tools/zanataLiteralsUpdate/src/main/resources) rename the `config-default.properties` file to `config.properties`
      and fill/edit the respective property values according to the comments in the file.
 
-5. Create tmp-office-files directory under Tomcat directory.
+5. Create `tmp-office-files directory` under Tomcat directory.
 
 ## Build
 
