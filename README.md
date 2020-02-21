@@ -34,39 +34,39 @@ to send a Europass XML or JSON document and get back a Europass document of a di
 ## Database
 
 Europass editor is currently using an SQL Server database.
-Create a new database called ewa_prod and a database user and then run the script that can be found in the statistics module 
+Create a new database called `ewa_prod` and a database user and then run the script that can be found in the statistics module 
 (path to script: europass-editors\statistics\src\main\resources\sql\ewa_prod_creation.sql) to create the database structure.
 
 ## Configuration
 
 1. Add the following application data source in Tomcat's server.xml under the GlobalNamingResources element (jtds library should be added to Tomcat's lib folder).
 
-<Resource name="jdbc/EWA_STATISTICS"
-        type="javax.sql.DataSource"
-        auth="Container"
-        driverClassName="net.sourceforge.jtds.jdbc.Driver"
-        url="jdbc:jtds:sqlserver://<SERVER_NAME>:1433;instance=MSSQLSERVER;DatabaseName=ewa_prod"
-        username="<USERNAME>"
-        password="<PASSWORD>"
-        maxActive="300" maxIdle="2" maxWait="5000"
-        removeAbandoned="true" removeAbandonedTimeout="60" />
+<Resource name="jdbc/EWA_STATISTICS"  
+        type="javax.sql.DataSource"  
+        auth="Container"  
+        driverClassName="net.sourceforge.jtds.jdbc.Driver"  
+        url="jdbc:jtds:sqlserver://<SERVER_NAME>:1433;instance=MSSQLSERVER;DatabaseName=ewa_prod"  
+        username="<USERNAME>"  
+        password="<PASSWORD>"  
+        maxActive="300" maxIdle="2" maxWait="5000"  
+        removeAbandoned="true" removeAbandonedTimeout="60" />  
 
 2. Add the following context initialization parameters to Tomcat's context.xml to set the properties paths for all modules and make them visible to the web application:
 
-    <Parameter name="europass-ewa-editors.external.config.properties"                         override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-editors-config.properties" /> 
-    <Parameter name="europass-ewa-services-remote-upload-postback.external.config.properties" override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-remote-upload-partners.properties" /> 
-    <Parameter name="europass-ewa-services-editors.external.config.properties"                override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/config.properties" /> 
-    <Parameter name="database-api.external.config.properties"                                 override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/database.properties" /> 
-    <Parameter name="europass-ewa-services-rest.external.config.properties"                   override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/config.properties" /> 
-    <Parameter name="database-rest.external.config.properties"                                override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/database.properties" /> 
-    <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/> 
+    <Parameter name="europass-ewa-editors.external.config.properties"                         override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-editors-config.properties" />  
+    <Parameter name="europass-ewa-services-remote-upload-postback.external.config.properties" override="false" value="<EUROPASS_ROOT_FOLDER>/editors/src/main/resources/ewa-remote-upload-partners.properties" />  
+    <Parameter name="europass-ewa-services-editors.external.config.properties"                override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/config.properties" />  
+    <Parameter name="database-api.external.config.properties"                                 override="false" value="<EUROPASS_ROOT_FOLDER>/services/editors/src/main/resources/database.properties" />     
+    <Parameter name="europass-ewa-services-rest.external.config.properties"                   override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/config.properties" />  
+    <Parameter name="database-rest.external.config.properties"                                override="false" value="<EUROPASS_ROOT_FOLDER>/services/rest/src/main/resources/database.properties" />     
+    <Parameter name="europass-ewa-oo-server.external.config.properties"                       override="false" value="<EUROPASS_ROOT_FOLDER>/office/server/src/main/resources/config.properties"/>  
 
 3. Create the following directories under Tomcat:
 
-    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config 
-    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-api-logback-config 
-    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-office-logback-config 
-    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config 
+    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-editors-logback-config  
+    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-api-logback-config  
+    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-office-logback-config  
+    <TOMCAT_INSTALLATION_DIR>/ewa-conf/webapp-rest-logback-config  
 
     and copy the logback.xml files from respective modules.
     Then modify the logback.xml files for each one of the modules so that they point to the right directory in Tomcat where the respective log file will be stored.
@@ -103,7 +103,7 @@ To build the project from command line run `mvn clean compile` from the project'
 
 ## Deploy
 The four applications that need to be deployed under Tomcat are: editors, api, rest, office.
-Run mvn package from the project's root folder to produce the war files.
+Run `mvn package` from the project's root folder to produce the war files.
 
 Rename the war produced under editors/target to editors.war
 Rename the war produced under services/editors/target to api.war
