@@ -77,7 +77,7 @@ Create a new database called `ewa_prod` and a database user and then run the scr
    - In the Editors module resources folder (editors/src/main/resources) rename the `ewa-editors-config-default.properties` file to `ewa-editors-config.properties`
      and the `ewa-remote-upload-partners-default.properties` file to `ewa-remote-upload-partners.properties` and fill/edit the respective property values according 
      to the comments in the file.
-   - In the cloud-share-config folder under the editors module resources folder fill the google service authentication properties. Rename the 1google-service-account-key-development-${ENVIRONMENT}.json1 file according to the 
+   - In the cloud-share-config folder under the editors module resources folder fill the google service authentication properties. Rename the `google-service-account-key-development-${ENVIRONMENT}.json` file according to the 
      value of the `context.project.current.environment` in `ewa-editors-config.properties` e.g if context.project.current.environment=production then the json file name should be
      google-service-account-key-development-production.json
    - In the Internationalisation module under the extraction resources folder (internationalisation/extraction/src/main/resources) rename the `config-default.properties` file to `config.properties`
