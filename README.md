@@ -1,14 +1,13 @@
 # EWA (Europass Web Apps - Cedefop)
 
-**EWA (Europass Web Apps - Cedefop)** is a distributed Java-based web system to help individuals communicate their skills,  
-qualifications and experience through the use of standardised documents templates. 
+**EWA (Europass Web Apps - Cedefop)** is a Java-based web system helping EU Citizens create their CV in the standardised Europass format.
 
 It consists of the following main modules:
 
 1. **Editors**: This is the main online CV Editor application which is called first when a user requests
-https://europass.cedefop.europa.eu/editors. It’s responsible for assembling the front-end
-part of EWA (a JavaScript-based Single Page Application) by detecting the User Agent,
-Locale, etc. and populating the initial HTML page that the user sees with suitable variables.
+the home page(URL active on 1/6/2020,  https://europass.cedefop.europa.eu/editors). It’s responsible for 
+assembling the front-end part of EWA (a JavaScript-based Single Page Application) by detecting the User Agent,
+Locale, etc. and creating the initial HTML page that the user sees with suitable variables.
 
 2. **API**: This is the heart of EWA where most of the processing and business logic takes place:
 data model, marshalling/unmarshalling of XML/JSON to Java objects and vice versa, file type
@@ -33,7 +32,7 @@ LibreOffice 4.0
 ```
 ## Database
 
-Europass editor is currently using an SQL Server database.
+Europass editor is currently using a Microsoft SQL Server database.
 Create a new database called `ewa_prod` and a database user and then run the script that can be found in the statistics module to create the database structure  
 (path to script: europass-editors/statistics/src/main/resources/sql/ewa_prod_creation.sql).
 
